@@ -1,2 +1,2 @@
 # dataStructures-algorithms
-This repository is my personal training in data structures and algorithms
+This repository contains data structures and algorithms examples.
