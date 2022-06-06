@@ -1,2 +1,2 @@
 # dataStructures-algorithms
-This repository contains data structures and algorithms examples.
+Excersises of data structures and algorithms.
