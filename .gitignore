@@ -66,3 +66,6 @@ replay_pid*
 
 #vs-code
 .vscode
+
+#other files
+*.dSYM
