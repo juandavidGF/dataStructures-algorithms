@@ -56,6 +56,7 @@ class HashTable {
 			this.data[address][j] = this.data[address][j+1];
 		}
 		delete this.data[address][lengthBucket - 1];
+		this.data[address].length--;
 	}
 
 	getKeys() {
