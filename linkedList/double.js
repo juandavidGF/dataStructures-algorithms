@@ -3,14 +3,16 @@ class Node {
 	constructor(value) {
 		this.value = value,
 		this.next = null;
+		this.prev = null;
 	}
 }
 
-class singleLinkedList {
+class doublyLinkedList {
 	constructor() {
 		this.head = {
 			value: 1,
 			next: null,
+			prev: null,
 		}
 		this.tail = this.head;
 		this.length = 1;
@@ -19,6 +21,7 @@ class singleLinkedList {
 	append(value) {
 		const newNode = new Node(value);
 
+		newNode.prev = this.tail;
 		this.tail.next = newNode;
 		this.tail = newNode;
 		this.length++;
@@ -37,7 +40,9 @@ class singleLinkedList {
 		const firstNode = this.getTheNode(index -1);
 		const holdingNode = firstNode.next;
 		firstNode.next = newNode;
+		newNode.prev = firstNode;
 		newNode.next = holdingNode;
+		holdingNode.prev = newNode;
 		this.length++;
 
 		return this;
@@ -52,6 +57,7 @@ class singleLinkedList {
 		const firstNode = this.getTheNode(index - 1);
 		const holdingNode = firstNode.next;
 		firstNode.next = holdingNode.next;
+		holdingNode.next.prev = firstNode;
 		this.length--;
 
 		return this;
@@ -69,21 +75,10 @@ class singleLinkedList {
 	}
 }
 
-const mySingleLinkedList = new singleLinkedList(1);
+const myDoubleLinkedList = new doublyLinkedList(1);
 
+myDoubleLinkedList.append(2);
+myDoubleLinkedList.append(3);
+myDoubleLinkedList.append(4);
 
-mySingleLinkedList.append(2)
-mySingleLinkedList.append(3)
-mySingleLinkedList.append(4)
-
-console.log("append ", mySingleLinkedList)
-
-const result = mySingleLinkedList.insert(3, 5);
-
-console.log("insert ", mySingleLinkedList)
-
-if(mySingleLinkedList.getTheNode(3).value === 5) {
-	console.log("Success. El valor en el index 3 es igual a 5");
-} else {
-	console.log("error", mySingleLinkedList.getTheNode(3))
-}
+console.log("append ", myDoubleLinkedList);
