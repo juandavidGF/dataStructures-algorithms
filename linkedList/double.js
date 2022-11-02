@@ -75,10 +75,10 @@ class doublyLinkedList {
 	}
 }
 
-const myDoubleLinkedList = new doublyLinkedList(1);
+const myDoublyLinkedList = new doublyLinkedList(1);
 
-myDoubleLinkedList.append(2);
-myDoubleLinkedList.append(3);
-myDoubleLinkedList.append(4);
+myDoublyLinkedList.append(2);
+myDoublyLinkedList.append(3);
+myDoublyLinkedList.append(4);
 
 console.log("append ", myDoubleLinkedList);
