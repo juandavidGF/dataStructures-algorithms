@@ -17,9 +17,10 @@ class BinaryTree {
 			this.root = new Node(value);
 		} else {
 			let currentNode = this.root;
-			const newNode = new Node(value)
+			const newNode = new Node(value);
+
 			while(true) {
-				if(currentNode.value < value) {
+				if(currentNode.value > value) {
 					if(!currentNode.left) {
 						currentNode.left = newNode;
 						return this;
@@ -35,14 +36,39 @@ class BinaryTree {
 			}
 		}
 	}
+
+	searchValue(value) {
+		let index = 0;
+		let currentNode = this.root;
+		while(true) {
+			if(value === currentNode.value) {
+				console.log('i', index);
+				return currentNode;
+			} else if(value < currentNode.value) {
+				index = 2*index+1;
+				if(!currentNode.left) {
+					currentNode.left = new Node(value);
+					return currentNode.left;
+				}
+				currentNode = currentNode.left;
+			} else if(value > currentNode.value) {
+				index = 2*index+2;
+				if(!currentNode.right) {
+					currentNode.right = new Node(value);
+					return currentNode.right;
+				}
+				currentNode = currentNode.right;
+			}
+		}
+	}
 }
 
 const tree = new BinaryTree();
 
-tree.insert(30);
-tree.insert(25);
-tree.insert(20);
-tree.insert(15);
 tree.insert(10);
-tree.insert(5);
-tree.insert(0);
+tree.insert(4);
+tree.insert(20);
+tree.insert(2);
+tree.insert(8);
+tree.insert(17);
+tree.insert(170);
