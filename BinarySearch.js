@@ -61,6 +61,20 @@ class BinaryTree {
 			}
 		}
 	}
+
+	searchR(value, tree = this.root, index = 0) {
+		if(tree == null) {
+			return "the value wasn't found";
+		} else if (value < tree.value) {
+			return this.searchR(value, tree.left, 2*index+1);
+		} else if (value > tree.value) {
+			return this.searchR(value, tree.right, 2*index+2);
+		} else if(value == tree.value) {
+			return `the value ${value}, was foundn in the index ${index}`;
+		} else {
+			return "an error ocurred";
+		}
+	}
 }
 
 const tree = new BinaryTree();
